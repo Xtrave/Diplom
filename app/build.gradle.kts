@@ -1,8 +1,10 @@
+import org.gradle.kotlin.dsl.implementation
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -43,6 +45,8 @@ android {
 
 dependencies {
 
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.firestore)
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.compose.material:material-icons-extended:1.7.0")
     implementation("androidx.core:core-ktx:1.10.1")
@@ -72,3 +76,4 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
+apply(plugin = "com.google.gms.google-services")

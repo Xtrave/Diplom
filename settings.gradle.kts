@@ -7,7 +7,9 @@ pluginManagement {
                 includeGroupByRegex("androidx.*")
             }
         }
-        mavenCentral()
+        mavenCentral{
+            url = uri("gcs://your-bucket/repository-path")
+        }
         gradlePluginPortal()
     }
 }

@@ -7,14 +7,18 @@
     android:layout_height="match_parent"
     android:background="@color/muted">
 
+    <!-- Простое поле поиска без лишних настроек -->
     <EditText
         android:id="@+id/search_input"
         android:hint="Поиск компаний"
-        android:drawableStart="@drawable/ic_search"
-        android:padding="12dp"
-        android:background="#FFFFFF"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textColorHint="@android:color/darker_gray" />
 
     <TextView
         android:layout_marginTop="24dp"
@@ -25,11 +29,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/company_recycler"
+        android:id="@+id/RecyclerView"
         android:layout_marginTop="16dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/emptyStateText"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Нет данных для отображения"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:visibility="gone" />
 
 </LinearLayout>
 
