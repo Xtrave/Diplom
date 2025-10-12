@@ -78,7 +78,6 @@ class CompanyListFragment : Fragment() {
                 } else {
                     filteredCompanies.addAll(allCompanies)
                     showDataState(filteredCompanies)
-                    Toast.makeText(requireContext(), "Загружено ${allCompanies.size} компаний", Toast.LENGTH_SHORT).show()
                 }
             }
             .addOnFailureListener { exception ->
