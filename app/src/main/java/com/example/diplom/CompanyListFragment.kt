@@ -5,21 +5,21 @@ import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
+
 
 class CompanyListFragment : Fragment() {
 
@@ -47,7 +47,10 @@ class CompanyListFragment : Fragment() {
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        companyAdapter = CompanyAdapter()
+        companyAdapter = CompanyAdapter { company ->
+            openCompanyDetails(company)
+        }
+
         recyclerView.adapter = companyAdapter
 
         setupSearchInput()
@@ -55,7 +58,20 @@ class CompanyListFragment : Fragment() {
 
         return view
     }
+        private fun openCompanyDetails(company: Company) {
+            val bundle = Bundle().apply {
+                putParcelable("company_key", company)
+            }
 
+            val infomationFragment = InfomationFragment().apply {
+                arguments = bundle
+            }
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, infomationFragment)
+                .addToBackStack(null)
+                .commit()
+    }
     private fun loadCompaniesFromFirebase() {
         val db = Firebase.firestore
 
@@ -78,14 +94,6 @@ class CompanyListFragment : Fragment() {
                 } else {
                     filteredCompanies.addAll(allCompanies)
                     showDataState(filteredCompanies)
-                }
-            }
-            .addOnFailureListener { exception ->
-                if (exception.message?.contains("permission") == true ||
-                    exception.message?.contains("PERMISSION_DENIED") == true) {
-                    showErrorState("Нет прав доступа к данным. Проверьте правила безопасности Firebase.")
-                } else {
-                    showErrorState(exception.message ?: "Неизвестная ошибка")
                 }
             }
     }
@@ -170,22 +178,9 @@ class CompanyListFragment : Fragment() {
         emptyStateText.text = message
     }
 
-    private fun showErrorState(errorMessage: String) {
-        progressBar.visibility = View.GONE
-        recyclerView.visibility = View.GONE
-        emptyStateText.visibility = View.VISIBLE
-        emptyStateText.text = "Ошибка загрузки данных"
-
-        Toast.makeText(requireContext(), "Ошибка: $errorMessage", Toast.LENGTH_LONG).show()
-    }
-
     private fun showKeyboard() {
         val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.showSoftInput(searchInput, InputMethodManager.SHOW_IMPLICIT)
     }
 
-    private fun hideKeyboard() {
-        val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(searchInput.windowToken, 0)
-    }
 }

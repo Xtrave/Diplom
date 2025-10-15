@@ -5,10 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
 
-class CompanyAdapter : RecyclerView.Adapter<CompanyAdapter.CompanyViewHolder>() {
-    
+class CompanyAdapter(private val onCompanyClick: (Company) -> Unit) : RecyclerView.Adapter<CompanyAdapter.CompanyViewHolder>() {
+
     private var companies: MutableList<Company> = mutableListOf()
+
+
 
     class CompanyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.company_name)
@@ -18,6 +21,7 @@ class CompanyAdapter : RecyclerView.Adapter<CompanyAdapter.CompanyViewHolder>() 
         val experience: TextView = itemView.findViewById(R.id.experience)
         val location: TextView = itemView.findViewById(R.id.location)
         val rating: TextView = itemView.findViewById(R.id.raiting)
+        val materialButton: MaterialButton = itemView.findViewById(R.id.materialButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CompanyViewHolder {
@@ -35,6 +39,10 @@ class CompanyAdapter : RecyclerView.Adapter<CompanyAdapter.CompanyViewHolder>() 
         holder.experience.text = company.experience
         holder.location.text = company.location
         holder.rating.text = company.rating
+
+        holder.materialButton.setOnClickListener {
+            onCompanyClick(company)
+        }
     }
 
     override fun getItemCount(): Int = companies.size

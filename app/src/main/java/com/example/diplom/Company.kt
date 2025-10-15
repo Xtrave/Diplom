@@ -1,7 +1,9 @@
 package com.example.diplom
 
+import android.os.Parcelable
 import com.google.firebase.firestore.DocumentSnapshot
-
+import kotlinx.parcelize.Parcelize
+@Parcelize
 data class Company(
     val name: String = "",
     val short_description: String = "",
@@ -9,40 +11,43 @@ data class Company(
     val certificates: String = "",
     val experience: String = "",
     val location: String = "",
-    val rating: String = ""
-) {
-    constructor() : this("", "", "", "", "", "", "")
-    
+    val rating: String = "",
+    val equipment: String = ""
+) : Parcelable {
+    constructor() : this("", "", "", "", "", "", "", "")
+
     companion object {
         fun fromDocument(document: DocumentSnapshot): Company {
-            val name = document.getString("name") ?: 
-                      document.getString("company_name") ?: 
+            val name = document.getString("name") ?:
+                      document.getString("company_name") ?:
                       document.getString("title") ?: ""
-            
-            val shortDescription = document.getString("short_description") ?: 
-                                  document.getString("description") ?: 
+
+            val shortDescription = document.getString("short_description") ?:
+                                  document.getString("description") ?:
                                   document.getString("shortDesc") ?: ""
-            
-            val activity = document.getString("activity") ?: 
-                          document.getString("type") ?: 
+
+            val activity = document.getString("activity") ?:
+                          document.getString("type") ?:
                           document.getString("business_type") ?: ""
-            
-            val certificates = document.getString("certificates") ?: 
-                              document.getString("cert") ?: 
+
+            val certificates = document.getString("certificates") ?:
+                              document.getString("cert") ?:
                               document.getString("certification") ?: ""
-            
-            val experience = document.getString("experience") ?: 
-                            document.getString("years") ?: 
+
+            val experience = document.getString("experience") ?:
+                            document.getString("years") ?:
                             document.getString("work_years") ?: ""
-            
-            val location = document.getString("location") ?: 
-                          document.getString("city") ?: 
+
+            val location = document.getString("location") ?:
+                          document.getString("city") ?:
                           document.getString("address") ?: ""
-            
-            val rating = document.getString("rating") ?: 
-                        document.getString("score") ?: 
+
+            val rating = document.getString("rating") ?:
+                        document.getString("score") ?:
                         document.getString("rate") ?: ""
-            
+
+            val equipment = document.getString("equipment") ?: ""
+
             return Company(
                 name = name,
                 short_description = shortDescription,
@@ -50,7 +55,8 @@ data class Company(
                 certificates = certificates,
                 experience = experience,
                 location = location,
-                rating = rating
+                rating = rating,
+                equipment = equipment
             )
         }
     }
