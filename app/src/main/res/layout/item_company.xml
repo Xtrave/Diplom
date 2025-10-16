@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#FFFFFF"
@@ -21,15 +22,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="Москва"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/company_details" />
+        app:layout_constraintTop_toBottomOf="@+id/certificates" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -43,7 +44,7 @@
         app:srcCompat="@drawable/ic_settings" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/raiting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -58,9 +59,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/company_details"
+        app:layout_constraintTop_toBottomOf="@+id/certificates"
         app:srcCompat="@drawable/ic_location_on" />
 
     <ImageView
@@ -68,8 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/raiting"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_star" />
 
@@ -85,31 +85,58 @@
         app:layout_constraintTop_toBottomOf="@+id/company_name" />
 
     <TextView
-        android:id="@+id/company_details"
+        android:id="@+id/activity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:text="Производство фрезерованных деталей\nОпыт: 12 лет\nISO 9001"
-        android:textSize="13dp"
+        android:text="Производство фрезерованных деталей"
         android:textColor="@color/black"
+        android:textSize="13dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/company_type" />
 
+    <TextView
+        android:id="@+id/certificates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="iso"
+        android:textColor="@color/black"
+        android:textSize="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/experience" />
+
+    <TextView
+        android:id="@+id/experience"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="10 лет"
+        android:textColor="@color/black"
+        android:textSize="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity" />
+
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/materialButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/more_detailed"
         android:textColor="@color/black"
         android:textSize="15dp"
         app:backgroundTint="@color/muted"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
         app:strokeColor="@color/muted"
         app:strokeWidth="2dp"
         tools:ignore="MissingConstraints" />

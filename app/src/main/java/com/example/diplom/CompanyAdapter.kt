@@ -5,14 +5,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
 
-class CompanyAdapter(private val companies: List<Company>) :
-    RecyclerView.Adapter<CompanyAdapter.CompanyViewHolder>() {
+class CompanyAdapter(private val onCompanyClick: (Company) -> Unit) : RecyclerView.Adapter<CompanyAdapter.CompanyViewHolder>() {
+
+    private var companies: MutableList<Company> = mutableListOf()
+
+
 
     class CompanyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.company_name)
-        val type: TextView = itemView.findViewById(R.id.company_type)
-        val details: TextView = itemView.findViewById(R.id.company_details)
+        val shortDesc: TextView = itemView.findViewById(R.id.company_type)
+        val activity: TextView = itemView.findViewById(R.id.activity)
+        val certificates: TextView = itemView.findViewById(R.id.certificates)
+        val experience: TextView = itemView.findViewById(R.id.experience)
+        val location: TextView = itemView.findViewById(R.id.location)
+        val rating: TextView = itemView.findViewById(R.id.raiting)
+        val materialButton: MaterialButton = itemView.findViewById(R.id.materialButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CompanyViewHolder {
@@ -24,11 +33,25 @@ class CompanyAdapter(private val companies: List<Company>) :
     override fun onBindViewHolder(holder: CompanyViewHolder, position: Int) {
         val company = companies[position]
         holder.name.text = company.name
-        holder.type.text = company.type
-        holder.details.text = company.details
+        holder.shortDesc.text = company.short_description
+        holder.activity.text = company.activity
+        holder.certificates.text = company.certificates
+        holder.experience.text = company.experience
+        holder.location.text = company.location
+        holder.rating.text = company.rating
+
+        holder.materialButton.setOnClickListener {
+            onCompanyClick(company)
+        }
     }
 
     override fun getItemCount(): Int = companies.size
+    
+    fun updateCompanies(newCompanies: List<Company>) {
+        companies.clear()
+        companies.addAll(newCompanies)
+        notifyDataSetChanged()
+    }
 }
 
 
