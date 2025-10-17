@@ -12,7 +12,9 @@ data class Company(
     val experience: String = "",
     val location: String = "",
     val rating: String = "",
-    val equipment: String = ""
+    val equipment: String = "",
+    val phone: String = "",
+    val email: String = ""
 ) : Parcelable {
     constructor() : this("", "", "", "", "", "", "", "")
 
@@ -48,6 +50,10 @@ data class Company(
 
             val equipment = document.getString("equipment") ?: ""
 
+            val phone = document.getString("phone") ?: ""
+
+            val email = document.getString("email") ?: ""
+
             return Company(
                 name = name,
                 short_description = shortDescription,
@@ -56,7 +62,9 @@ data class Company(
                 experience = experience,
                 location = location,
                 rating = rating,
-                equipment = equipment
+                equipment = equipment,
+                phone = phone,
+                email = email
             )
         }
     }

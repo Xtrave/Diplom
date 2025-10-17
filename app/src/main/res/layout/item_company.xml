@@ -12,12 +12,12 @@
         android:id="@+id/company_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="5dp"
         android:text="ООО «ТехМеталл»"
-        android:textSize="18sp"
-        android:textStyle="bold"
         android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,11 +34,10 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="45dp"
+        android:layout_height="38dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toStartOf="@+id/company_name"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_settings" />
@@ -47,10 +46,11 @@
         android:id="@+id/raiting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="43dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
         android:text="4.8"
         android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,9 +66,10 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
         app:layout_constraintEnd_toStartOf="@+id/raiting"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_star" />
