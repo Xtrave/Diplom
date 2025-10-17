@@ -1,58 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    android:orientation="vertical"
-    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/muted">
+    android:layout_marginBottom="40dp"
+    android:background="@color/muted"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <!-- Простое поле поиска без лишних настроек -->
     <EditText
         android:id="@+id/search_input"
-        android:hint="Поиск компаний"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:padding="12dp"
         android:background="@android:drawable/edit_text"
-        android:textSize="16sp"
+        android:hint="Поиск компаний"
+        android:padding="12dp"
         android:textColor="@color/black"
-        android:textColorHint="@android:color/darker_gray" />
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="16sp" />
 
-    <TextView
-        android:layout_marginTop="24dp"
-        android:text="Фильтры"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:textColor="@color/black"
+    <Button
+        android:id="@+id/btn_filters"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:text="Фильтры"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
     <ProgressBar
         android:id="@+id/progressBar"
-        android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="16dp"
         android:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerView"
-        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone" />
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        android:overScrollMode="never"/>
 
     <TextView
         android:id="@+id/emptyStateText"
-        android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="16dp"
         android:text="Нет данных для отображения"
-        android:textSize="16sp"
         android:textColor="@color/black"
+        android:textSize="16sp"
         android:visibility="gone" />
 
 </LinearLayout>

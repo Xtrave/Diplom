@@ -7,9 +7,11 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.view.updatePadding
 
 class MainActivity : AppCompatActivity() {
@@ -25,11 +27,9 @@ class MainActivity : AppCompatActivity() {
                 .commit()
         }
 
-
         WindowCompat.setDecorFitsSystemWindows(window, false)
-
-        window.attributes.layoutInDisplayCutoutMode =
-            WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+        window.statusBarColor = ContextCompat.getColor(this, R.color.black)
+        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = false
 
         val rootView = findViewById<View>(R.id.fragment_container)
         ViewCompat.setOnApplyWindowInsetsListener(rootView) { view, insets ->

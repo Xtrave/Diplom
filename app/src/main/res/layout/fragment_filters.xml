@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="40dp"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:text="Вид деятельности"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioGroup
+            android:id="@+id/rg_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton android:id="@+id/rb_activity_laser" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Лазерная резка" />
+            <RadioButton android:id="@+id/rb_activity_milling" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Фрезерование" />
+            <RadioButton android:id="@+id/rb_activity_turning" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Токарная обработка" />
+            <RadioButton android:id="@+id/rb_activity_grinding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Шлифовка" />
+            <RadioButton android:id="@+id/rb_activity_stamping" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Штамповка" />
+            <RadioButton android:id="@+id/rb_activity_welding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Сварка" />
+            <RadioButton android:id="@+id/rb_activity_cnc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ЧПУ обработка" />
+            <RadioButton android:id="@+id/rb_activity_galvanic" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Гальванические покрытия" />
+            <RadioButton android:id="@+id/rb_activity_powder" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Порошковая покраска" />
+            <RadioButton android:id="@+id/rb_activity_mold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Изготовление пресс-форм" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_marginTop="12dp"
+            android:text="Город"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioGroup
+            android:id="@+id/rg_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton android:id="@+id/rb_city_moscow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Москва" />
+            <RadioButton android:id="@+id/rb_city_spb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Санкт-Петербург" />
+            <RadioButton android:id="@+id/rb_city_ekb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Екатеринбург" />
+            <RadioButton android:id="@+id/rb_city_kazan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Казань" />
+            <RadioButton android:id="@+id/rb_city_nnov" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Нижний Новгород" />
+            <RadioButton android:id="@+id/rb_city_rostov" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ростов-на-Дону" />
+            <RadioButton android:id="@+id/rb_city_samara" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Самара" />
+            <RadioButton android:id="@+id/rb_city_voronezh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Воронеж" />
+            <RadioButton android:id="@+id/rb_city_krasnodar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Краснодар" />
+            <RadioButton android:id="@+id/rb_city_ufa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Уфа" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_marginTop="12dp"
+            android:text="Рейтинг"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioGroup
+            android:id="@+id/rg_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton android:id="@+id/rb_rating_45" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4.5+ звезд" />
+            <RadioButton android:id="@+id/rb_rating_47" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4.7+ звезд" />
+            <RadioButton android:id="@+id/rb_rating_49" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4.9+ звезд" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_marginTop="12dp"
+            android:text="Опыт работы"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioGroup
+            android:id="@+id/rg_experience"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton android:id="@+id/rb_exp_lt5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="До 5 лет" />
+            <RadioButton android:id="@+id/rb_exp_5_10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5-10 лет" />
+            <RadioButton android:id="@+id/rb_exp_10_15" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10-15 лет" />
+            <RadioButton android:id="@+id/rb_exp_gt15" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Более 15 лет" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_marginTop="12dp"
+            android:text="Сертификаты"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/group_certificates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <CheckBox android:id="@+id/cb_cert_iso9001" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ISO 9001" />
+            <CheckBox android:id="@+id/cb_cert_iso14001" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ISO 14001" />
+            <CheckBox android:id="@+id/cb_cert_iatf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="IATF 16949" />
+            <CheckBox android:id="@+id/cb_cert_as9100" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AS9100" />
+            <CheckBox android:id="@+id/cb_cert_ce" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CE" />
+            <CheckBox android:id="@+id/cb_cert_rohs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="RoHS" />
+            <CheckBox android:id="@+id/cb_cert_qualicoat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Qualicoat" />
+            <CheckBox android:id="@+id/cb_cert_en1090" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="EN 1090" />
+            <CheckBox android:id="@+id/cb_cert_iso3834" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ISO 3834" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+            <Button
+                android:id="@+id/btn_reset"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/muted"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:text="Сбросить" />
+
+            <View
+                android:layout_width="12dp"
+                android:layout_height="10dp" />
+            <Button
+                android:id="@+id/btn_apply"
+                android:layout_width="0dp"
+                android:backgroundTint="@color/muted"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Применить" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
+
+

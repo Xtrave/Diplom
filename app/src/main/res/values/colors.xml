@@ -7,4 +7,5 @@
     <color name="textPrimary">#212121</color>
     <color name="muted">#D9D3D3</color>
     <color name="black">#000000</color>
+    <color name="my_appbar_color">#00695C</color>
 </resources>
